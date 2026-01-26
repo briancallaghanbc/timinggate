@@ -30,11 +30,16 @@ body {
     
 }
 .card {
+    min-width: 100vw ;
+    height: 200px;
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-    scroll-snap-align: start;
-    flex: 0 0 auto; 
+    scroll-snap-align: center;
+ 
     display: flex;
+    /* Styling the border */
+    border: 2px solid #ccc;
+    border-radius: 10px;
 }
 button {
     color: white;
