@@ -41,7 +41,7 @@ body {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    white-space: nowrap; 
+    flex-flow: row nowrap;
     grid-gap: 2rem;
     width: 100vw;
     gap: 16px;
@@ -54,6 +54,7 @@ body {
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
     scroll-snap-align: start;
     display: flex;
+    flex-direction: column;
   
     /* Styling the border */
     border: 2px solid #ccc;
