@@ -21,6 +21,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 30px;
+    float: left;
     display: grid;
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
