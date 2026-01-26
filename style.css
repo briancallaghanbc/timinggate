@@ -35,12 +35,13 @@ body {
     border-radius: 10px;
 }
 .card-grid {
-   
+    flex: 0 0 100vw; 
     margin: 0 auto;
     margin-bottom: 10px;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    scroll-snap-align: start;
     flex-flow: row nowrap;
     grid-gap: 2rem;
     width: 100vw;
@@ -53,8 +54,8 @@ body {
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
     scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
+
+
   
     /* Styling the border */
     border: 2px solid #ccc;
