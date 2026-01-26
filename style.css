@@ -20,9 +20,8 @@ body {
 .top-grid {
     min-width: 100vw ;
     margin: 0 auto;
-    margin-bottom: 30px;
-    grid-gap: 2rem;
-    width: 100%;
+    margin-bottom: 10px;
+    width: calc(100vw-4rem)
     
 }
 .top-card {
@@ -38,13 +37,13 @@ body {
 .card-grid {
    
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     white-space: nowrap; 
     grid-gap: 2rem;
-    width: 100%;
+    width: 100vw;
     gap: 16px;
     
 }
