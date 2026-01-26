@@ -26,13 +26,11 @@ body {
     
 }
 .top-card {
-    min-width: 100vw ;
+    min-width: calc(100vw-4rem) ;
     height: 200px;
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-    scroll-snap-align: start;
- 
-    display: flex;
+   
     /* Styling the border */
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -47,16 +45,17 @@ body {
     white-space: nowrap; 
     grid-gap: 2rem;
     width: 100%;
+    gap: 16px;
     
 }
 .card {
-    min-width: 100vw ;
+    min-width: calc(100vw-4rem) ;
     height: 500px;
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
     scroll-snap-align: start;
  
-    display: flex;
+  
     /* Styling the border */
     border: 2px solid #ccc;
     border-radius: 10px;
