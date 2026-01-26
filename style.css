@@ -18,16 +18,23 @@ body {
     padding: 10px;
 }
 .card-grid {
-    max-width: 800px;
+   
     margin: 0 auto;
     margin-bottom: 30px;
-    display: grid;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap; 
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    
 }
 .card {
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+    scroll-snap-align: start;
+    flex: 0 0 auto; 
+    display: flex;
 }
 button {
     color: white;
