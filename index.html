@@ -12,8 +12,8 @@
         <h1>Timing Gate</h1>
     </div>
     <div class="content">
-        <div class="card-grid">
-            <div class="card">
+        <div class="top-grid">
+            <div class="top-card">
                 <p>
                     <button id="connectBleButton" class="connectButton"> Connect</button>
                     <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button>
@@ -21,25 +21,23 @@
                 <p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>
             </div>
         </div>
-        <div class="card-grid">   
-            <div class="card">
-                <h2>Fetched Value</h2>
-                <p class="reading"><span id="valueContainer">NaN</span></p>
-                <p class="gray-label">Last reading: <span id="timestamp"></span></p>
-            </div>
+    </div>
+    <div class="card-grid">   
+        <div class="card">
+            <h2>Fetched Value</h2>
+            <p class="reading"><span id="valueContainer">NaN</span></p>
+            <p class="gray-label">Last reading: <span id="timestamp"></span></p>
+        </div>
 
-            <div class="card">
-                <h2>Control GPIO 2</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
-                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
-            </div>
+        <div class="card">
+            <h2>Control GPIO 2</h2>
+            <button id="onButton" class="onButton">ON</button>
+            <button id="offButton" class="offButton">OFF</button>
+            <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
         </div>
     </div>
-    <div class="footer">
-        <p><a href="https://randomnerdtutorials.com/">Created by RandomNerdTutorials.com</a></p>
-        <p><a href="https://RandomNerdTutorials.com/esp32-web-bluetooth/">Read the full project here.</a></p>
-    </div>
+ 
+
 </body>
 <script>
     // DOM Elements
@@ -89,7 +87,7 @@
     }
 
     // Connect to BLE Device and Enable Notifications
-    function connectToDevice(){
+    function connectToDevice(){ 
         console.log('Initializing Bluetooth...');
         navigator.bluetooth.requestDevice({
             filters: [{name: deviceName}],
@@ -207,7 +205,9 @@
         var datetime = day + "/" + month + "/" + year + " at " + hours + ":" + minutes + ":" + seconds;
         return datetime;
     }
-
+    function test() {
+       document.body.div.
+    }
 
 </script>
 
