@@ -113,18 +113,16 @@
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
             
-            const newcard = document.createElement('div');
-            newcard.classList.add('card'); // Add the 'card' CSS class
-            const cardTitle = document.createElement('h2');
-            cardTitle.textContent = "Times";
-            const cardContent = document.createElement('p');
-            cardContent.classList.add('reading');
-            cardContent.innerHTML = decodedValue;
+            let htmlContent = '';
+            htmlContent += `
+            <div class="card">
+                <h2>Gate Times</h2>
+                <p class="reading">${decodedValue}</p>
+            </div>
+            `;
+            cardsValue.insertAdjacentHTML('beforeend', htmlContent);
 
-            newcard.appendChild(cardTitle);
-            newcard.appendChild(cardContent);
-
-            cardsValue.appendChild(newcard)            
+                    
            
         })
         .catch(error => {
