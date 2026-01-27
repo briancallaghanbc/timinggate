@@ -112,7 +112,7 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            
+            bleStateContainer.innerHTML=decodedValue
             let htmlContent = '';
             htmlContent += `
             <div class="card">
