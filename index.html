@@ -22,18 +22,8 @@
             </div>
         </div>
     </div>
-    <div class="card-grid">   
-        <div class="card">
-            <h2>Times</h2>
-            <p class="reading"><span id="valueContainer">Waiting for time</span></p>
-            <p class="gray-label">Last reading: <span id="timestamp"></span></p>
-        </div>
-
-        <div class="card">
-            <h2>Fetched Value</h2>
-            <p class="reading"><span id="valueContainer">NaN</span></p>
-            <p class="gray-label">Last reading: <span id="timestamp"></span></p>
-        </div>
+    <div class="card-grid", id="cardContainer">  
+        
     </div>
  
 
@@ -44,7 +34,7 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
-    const retrievedValue = document.getElementById('valueContainer');
+    const cardsValue = document.getElementById('cardContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
@@ -60,6 +50,7 @@
     var bleServiceFound;
     var sensorCharacteristicFound;
 
+    
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
         if (isWebBluetoothEnabled()){
@@ -121,7 +112,20 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            retrievedValue.innerHTML = decodedValue;            
+            if (cardsValue.innerHTML === '') {
+                cardsValue.innerHTML = `<div class="card">
+                <h2>Times</h2>
+                <p class="reading">` + decodedValue +`</span></p>
+                <p class="gray-label">time recorded: ` + getDateTime() +`</span></p>
+                </div>`
+            } else {
+                cardsValue.innerHTML = cardsValue.innerHTML + `<div class="card">
+                <h2>Times</h2>
+                <p class="reading">` + decodedValue +`</span></p>
+                <p class="gray-label">time recorded: ` + getDateTime() +`</span></p>
+                </div>`
+            }
+           
         })
         .catch(error => {
             console.log('Error: ', error);
