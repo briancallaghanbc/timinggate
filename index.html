@@ -22,9 +22,8 @@
             </div>
         </div>
     </div>
-    <div class="card-grid"> 
-        <span id="cardContainer"></span> 
-        
+    <div class="card-grid", id="cardContainer"> 
+      <! cards added here<!-- Dynamic cards will be added here by JavaScript -->        
     </div>
  
 
@@ -113,12 +112,16 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            cardsValue.innerHTML = `<div class="card">
-                <h2>Times</h2>
-                <p class="reading">` + decodedValue +`</p>
-                <p class="gray-label">time recorded: ` + getDateTime() +`</p>
-                </div>`
+            const card = document.createElement('div');
+            card.classList.add('card'); // Add the 'card' CSS class
+            const cardTitle = document.createElement('h2');
+            cardTitle.textContent = "Times";
+            const cardContent = document.createElement('p');
+            cardContent.textContent = decodedValue;
+            card.appendChild(cardTitle);
+            card.appendChild(cardContent);
             
+            cardsValue.appendChild(card)            
            
         })
         .catch(error => {
