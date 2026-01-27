@@ -112,19 +112,12 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            if (cardsValue.innerHTML === '') {
-                cardsValue.innerHTML = `<div class="card">
+            cardsValue.innerHTML = `<div class="card">
                 <h2>Times</h2>
                 <p class="reading">` + decodedValue +`</span></p>
                 <p class="gray-label">time recorded: ` + getDateTime() +`</span></p>
                 </div>`
-            } else {
-                cardsValue.innerHTML = cardsValue.innerHTML + `<div class="card">
-                <h2>Times</h2>
-                <p class="reading">` + decodedValue +`</span></p>
-                <p class="gray-label">time recorded: ` + getDateTime() +`</span></p>
-                </div>`
-            }
+            
            
         })
         .catch(error => {
