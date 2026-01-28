@@ -44,7 +44,7 @@ body {
     flex-flow: row nowrap;
     grid-gap: 2rem;
     width: 100vw;
-    gap: 16px;
+    gap: 10px;
     
 }
 .card {
@@ -89,6 +89,6 @@ button {
 }
 
 .reading { 
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     text-align: left;
 }
