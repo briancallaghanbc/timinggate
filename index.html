@@ -75,6 +75,16 @@
         return true
     }
 
+    function createCard(decodedValue) {
+        let htmlContent = '';
+        htmlContent += `
+        <div class="card">
+            <h2>Gate Times</h2>
+            <p class="reading"><span>${decodedValue}</span></p>
+            <p class="gray-label">Last reading: <span>${getDateTime()}</span></p>
+        </div> `
+        return htmlContent
+    }
     // Connect to BLE Device and Enable Notifications
     function connectToDevice(){
         console.log('Initializing Bluetooth...');
@@ -111,15 +121,9 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            //retrievedValue.innerHTML = decodedValue;  
-            let htmlContent = '';
-            htmlContent += `
-            <div class="card">
-                <h2>Gate Times</h2>
-                <p class="reading"><span>${decodedValue}</span></p>
-            </div> `
-            //retrievedValue.innerHTML = htmlContent;   
-            retrievedValue.insertAdjacentHTML ('afterbegin',htmlContent)
+
+            const newcard=createCard (decodedValue) 
+            retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -137,16 +141,8 @@
     function handleCharacteristicChange(event){
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
-        //retrievedValue.innerHTML = newValueReceived;
-        let htmlContent = '';
-            htmlContent += `
-            <div class="card">
-                <h2>Gate Times</h2>
-                <p class="reading"><span>${newValueReceived}</span></p>
-            </div> `
-        //retrievedValue.innerHTML = htmlContent;
-        retrievedValue.insertAdjacentHTML ('afterbegin',htmlContent)
-        //timestampContainer.innerHTML = getDateTime();
+        const newcard=createCard (newValueReceived) 
+        retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
     }
 
     function writeOnCharacteristic(value){
