@@ -37,7 +37,7 @@
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
-    const timestampContainer = document.getElementById('timestamp');
+    //const timestampContainer = document.getElementById('timestamp');
 
     //Define BLE Device Specs
     var deviceName ='TimingGate';
@@ -111,7 +111,14 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            retrievedValue.innerHTML = decodedValue;            
+            //retrievedValue.innerHTML = decodedValue;  
+            let htmlContent = '';
+            htmlContent += `
+            <div class="card">
+                <h2>Gate Times</h2>
+                <p class="reading"><span>${decodedValue}</span></p>
+            </div> `
+            retrievedValue.innerHTML = htmlContent;     
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -129,8 +136,15 @@
     function handleCharacteristicChange(event){
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
-        retrievedValue.innerHTML = newValueReceived;
-        timestampContainer.innerHTML = getDateTime();
+        //retrievedValue.innerHTML = newValueReceived;
+        let htmlContent = '';
+            htmlContent += `
+            <div class="card">
+                <h2>Gate Times</h2>
+                <p class="reading"><span>${newValueReceived}</span></p>
+            </div> `
+        retrievedValue.innerHTML = htmlContent;
+        //timestampContainer.innerHTML = getDateTime();
     }
 
     function writeOnCharacteristic(value){
