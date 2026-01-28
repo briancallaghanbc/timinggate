@@ -118,7 +118,8 @@
                 <h2>Gate Times</h2>
                 <p class="reading"><span>${decodedValue}</span></p>
             </div> `
-            retrievedValue.innerHTML = htmlContent;     
+            //retrievedValue.innerHTML = htmlContent;   
+            retrievedValue.insertAdjacentHTML ('afterbegin',htmlContent)
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -143,7 +144,8 @@
                 <h2>Gate Times</h2>
                 <p class="reading"><span>${newValueReceived}</span></p>
             </div> `
-        retrievedValue.innerHTML = htmlContent;
+        //retrievedValue.innerHTML = htmlContent;
+        retrievedValue.insertAdjacentHTML ('afterbegin',htmlContent)
         //timestampContainer.innerHTML = getDateTime();
     }
 
