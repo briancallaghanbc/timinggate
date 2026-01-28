@@ -37,6 +37,7 @@ body {
 .card-grid {
 
     margin-bottom: 10px;
+    margin-left: 10px;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
@@ -83,12 +84,12 @@ button {
 }
 
 .gray-label { 
-    color: #bebebe; 
+    color: #9b9b9b; 
     font-size: 1rem; 
-    text-align: left;
+    text-align: center;
 }
 
 .reading { 
-    font-size: 2.4rem;
+    font-size: 2rem;
     text-align: left;
 }
