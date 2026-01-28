@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div id="cardContainer" class="card-grid" > 
+    <div id="valueContainer" class="card-grid" > 
       <! cards added here<!-- Dynamic cards will be added here by JavaScript -->        
     </div>
  
@@ -34,13 +34,13 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
-    const cardsValue = document.getElementById('cardContainer');
+    const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
 
     //Define BLE Device Specs
-    var deviceName ='TimingGate';
+    var deviceName ='ESP32';
     var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
     var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
     var sensorCharacteristic= '19b10001-e8f2-537e-4f6c-d104768a1214';
@@ -50,7 +50,6 @@
     var bleServiceFound;
     var sensorCharacteristicFound;
 
-    
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
         if (isWebBluetoothEnabled()){
@@ -77,7 +76,7 @@
     }
 
     // Connect to BLE Device and Enable Notifications
-    function connectToDevice(){ 
+    function connectToDevice(){
         console.log('Initializing Bluetooth...');
         navigator.bluetooth.requestDevice({
             filters: [{name: deviceName}],
@@ -112,20 +111,7 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
-            bleStateContainer.innerHTML=decodedValue
-            /*
-            let htmlContent = '';
-            htmlContent += `
-            <div class="card">
-                <h2>Gate Times</h2>
-                <p class="reading"><span>${decodedValue}</span></p>
-            </div>
-            `;
-            //cardsValue.insertAdjacentHTML('beforeend', htmlContent);
-            cardsValue.innerHTML = htmlContent;   
-            */
-                    
-           
+            retrievedValue.innerHTML = decodedValue;            
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -208,7 +194,7 @@
         var datetime = day + "/" + month + "/" + year + " at " + hours + ":" + minutes + ":" + seconds;
         return datetime;
     }
-    
+
 
 </script>
 
