@@ -44,7 +44,7 @@ body {
     scroll-snap-type: x mandatory;
     scroll-snap-align: start;
     flex-flow: row nowrap;
-    grid-gap: 2rem;
+    grid-gap: 10px;
     max-width: calc(100vm -10rem);
     gap: 10px;
     
