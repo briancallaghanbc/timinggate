@@ -19,7 +19,16 @@
                     <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button>
                 </p>
                 <p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>
+                <p>
+                    <table style="width: 90%; table-layout: fixed; font-size: 1rem">
+                    <thead><tr><th>Gate 1</th><th>Gate 2</th><th>Gate 3</th></tr></thead><tbody>
+                    <tr><td><div id="Led1" class="red led"></div></td><td><div id="Led2" class="red led"></div></td><td><div id="Led3" class="red led"></div></td></tr>
+                    </tbody></table></body></html>
+                </p>
+
+
             </div>
+            
         </div>
     </div>
     <div id="valueContainer" class="card-grid" > 
@@ -37,6 +46,9 @@
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
+    const indicatorLed1 = document.getElementById('Led1');
+    const indicatorLed2 = document.getElementById('Led2');
+    const indicatorLed3 = document.getElementById('Led3');
     //const timestampContainer = document.getElementById('timestamp');
 
     //Define BLE Device Specs
@@ -50,6 +62,7 @@
     var bleServiceFound;
     var sensorCharacteristicFound;
 
+    
     // Connect Button (search for BLE Devices only if BLE is available)
     connectButton.addEventListener('click', (event) => {
         if (isWebBluetoothEnabled()){
@@ -85,6 +98,35 @@
         </div> `
         return htmlContent
     }
+
+    function toggleGateIndicator(decodedValue){
+        arrayInd=decodedValue.split(":")
+        switch(arrayInd[1]) {
+            case "1":
+                if (arrayInd[2]=="on") {
+                    indicatorLed1.className="green led"
+                } else {
+                    indicatorLed1.className="red led"
+                }
+                break;
+            case "2":
+                if (arrayInd[2]=="on") {
+                    indicatorLed2.className="green led"
+                } else {
+                    indicatorLed2.className="red led"
+                }
+                break;
+            case "3":
+                if (arrayInd[2]=="on") {
+                    indicatorLed3.className="green led"
+                } else {
+                    indicatorLed3.className="red led"
+                }
+                break;
+        }
+
+    }
+
     // Connect to BLE Device and Enable Notifications
     function connectToDevice(){
         console.log('Initializing Bluetooth...');
@@ -121,9 +163,17 @@
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
             console.log("Decoded value: ", decodedValue);
+            if(decodedValue.startsWith("Gate")) {
+                toggleGateIndicator(decodedValue)
+            }
+            else {
+                const newcard=createCard (decodedValue) 
+                retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
+            }
+            
+            
 
-            const newcard=createCard (decodedValue) 
-            retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
+
         })
         .catch(error => {
             console.log('Error: ', error);
@@ -141,8 +191,14 @@
     function handleCharacteristicChange(event){
         const newValueReceived = new TextDecoder().decode(event.target.value);
         console.log("Characteristic value changed: ", newValueReceived);
-        const newcard=createCard (newValueReceived) 
-        retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
+        if(newValueReceived.startsWith("Gate")) {
+            toggleGateIndicator(newValueReceived)
+        }
+        else {
+            const newcard=createCard (newValueReceived) 
+            retrievedValue.insertAdjacentHTML ('afterbegin',newcard)
+        }
+        
     }
 
     function writeOnCharacteristic(value){
