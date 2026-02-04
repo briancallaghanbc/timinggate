@@ -38,14 +38,14 @@ body {
 
     margin-bottom: 10px;
     margin-left: 10px;
-    margin-right: 10px;
+ 
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-snap-align: start;
     flex-flow: row nowrap;
     grid-gap: 5px;
-    max-width: calc(100vm -10rem);
+    max-width: calc(100vm -5rem);
     gap: 5px;
     
 }
