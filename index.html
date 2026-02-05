@@ -89,13 +89,20 @@
     }
 
     function createCard(decodedValue) {
-        let htmlContent = '';
-        htmlContent = `
-        <div class="card">
-            <h2>Gate Times</h2>
-            <p class="reading"><span>${decodedValue}</span></p>
-            <p class="date-label">Date: <span>${getDateTime()}</span></p>
-        </div> `
+        let htmlContent = `<div class="card">
+                            <h2>Gate Times</h2>
+                                <p class="reading"><span>
+                                    <table style="width: 95%; table-layout: fixed; font-size: 1.5rem">
+                                    <thead><tr><th>Gate</th><th>Time</th><th>Split</th></tr></thead><tbody>`
+        arraySplit = decodedValue.split("|");
+        arraySplit.forEach( newtime => {
+             splitInfo=time.split(":")
+                htmlContent = htmlContent + "<tr><td>" + splitInfo[0] + "</td><td>" + splitInfo[1]  + "</td><td>" + splitInfo[2] + "</td></tr>"
+            });
+                                     
+        htmlContent = htmlContent +`</span></p>
+                    <p class="date-label">Date: <span>${getDateTime()}</span></p>
+                </div> `
         return htmlContent
     }
 
