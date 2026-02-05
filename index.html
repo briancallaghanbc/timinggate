@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p>
-                    <button id="connectBleButton" class="connectButton"><span id="bleState">Connect1</span></button>
+                    <button id="connectBleButton" class="connectButton"><span id="bleState">Connect</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -148,7 +148,7 @@
         .then(device => {
             console.log('Device Selected:', device.name);
             bleStateContainer.innerHTML = 'Connected' ;
-            bleStateContainer.style.color = "#24af37";
+ 
             device.addEventListener('gattservicedisconnected', onDisconnected);
             return device.gatt.connect();
         })
