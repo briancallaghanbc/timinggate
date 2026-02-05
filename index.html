@@ -97,7 +97,7 @@
         arraySplit = decodedValue.split("|");
         arraySplit.forEach( newtime => {
              if (newtime != "") {
-                splitInfo=time.split(":")
+                splitInfo=newtime.split(":")
                 htmlContent = htmlContent + "<tr><td>" + splitInfo[0] + "</td><td>" + splitInfo[1]  + "</td><td>" + splitInfo[2] + "</td></tr>"
              }
             });
