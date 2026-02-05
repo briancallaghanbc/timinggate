@@ -96,8 +96,10 @@
                                     <thead><tr><th>Gate</th><th>Time</th><th>Split</th></tr></thead><tbody>`
         arraySplit = decodedValue.split("|");
         arraySplit.forEach( newtime => {
-             splitInfo=time.split(":")
+             if (newtime != "") {
+                splitInfo=time.split(":")
                 htmlContent = htmlContent + "<tr><td>" + splitInfo[0] + "</td><td>" + splitInfo[1]  + "</td><td>" + splitInfo[2] + "</td></tr>"
+             }
             });
                                      
         htmlContent = htmlContent +`</span></p>
