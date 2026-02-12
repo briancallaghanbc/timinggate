@@ -224,7 +224,7 @@
                 return characteristic.writeValue(data);
             })
             .then(() => {
-                //latestValueSent.innerHTML = value;
+                onButton.innerHTML = "sent";
                 console.log("Value written to LEDcharacteristic:", value);
             })
             .catch(error => {
