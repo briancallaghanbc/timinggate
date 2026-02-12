@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p >
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect1</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -26,7 +26,7 @@
                     </tbody></table></body></html>
                 </p>
                 <p>
-                    <button id="modeButton" class="modeButton">Gates only</button>
+                    <button id="onButton" class="modeButton">Gates Only</button>
                 </p>
 
 
@@ -44,7 +44,7 @@
     // DOM Elements
     const connectButton = document.getElementById('connectBleButton');
     const disconnectButton = document.getElementById('disconnectBleButton');
-    const modeButton = document.getElementById('modeButton');
+    const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
@@ -77,7 +77,7 @@
     disconnectButton.addEventListener('click', disconnectDevice);
 
     // Write to the ESP32 LED Characteristic
-    modeButton.addEventListener('click', () => writeOnCharacteristic(1));
+    onButton.addEventListener('click', () => writeOnCharacteristic(1));
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
 
     // Check if BLE is available in your Browser
