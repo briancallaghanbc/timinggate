@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p >
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect1</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -207,6 +207,10 @@
         console.log("Characteristic value changed: ", newValueReceived);
         if(newValueReceived.startsWith("Gate")) {
             toggleGateIndicator(newValueReceived)
+        } 
+        else if (newValueReceived.startsWith("Mode")) {
+            mode=newValueReceived.split(":")
+            onButton.innerHTML=mode[1]
         }
         else {
             const newcard=createCard (newValueReceived) 
@@ -216,7 +220,6 @@
     }
 
     function writeOnCharacteristic(value){
-        onButton.innerHTML = "start";
         if (bleServer && bleServer.connected) {
             bleServiceFound.getCharacteristic(ledCharacteristic)
             .then(characteristic => {
@@ -225,7 +228,7 @@
                 return characteristic.writeValue(data);
             })
             .then(() => {
-                onButton.innerHTML = "sent";
+                //onButton.innerHTML = "sent";
                 console.log("Value written to LEDcharacteristic:", value);
             })
             .catch(error => {
