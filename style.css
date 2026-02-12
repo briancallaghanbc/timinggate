@@ -20,16 +20,19 @@ body {
 .top-grid {
     
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width: calc(100vw-4rem)
-    
+  
 }
 .top-card {
    
     height: 200px;
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
-   
+    margin-bottom: 10px;
+    
+    
+    grid-auto-rows: ;
     /* Styling the border */
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -61,15 +64,18 @@ body {
 }
 button {
     color: white;
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     border-radius: 4px;
 }
 
-.onButton{
+.modeButton{
     background-color: #1b8a94;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem
 }
 
 .offButton{
@@ -78,6 +84,9 @@ button {
 
 .connectButton{
     background-color: #24af37;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2rem
 }
 
 .disconnectButton{
@@ -122,6 +131,8 @@ button {
     box-shadow: 0px 0px 1px black;
     margin: 5px;
     zoom: 4;
-    margin-top: 0.1rem;
+
+    margin-top: 0;
+    margin-bottom: 0;
 
 }
