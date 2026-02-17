@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect1</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -56,6 +56,9 @@
     const indicatorLed1 = document.getElementById('Led1');
     const indicatorLed2 = document.getElementById('Led2');
     const indicatorLed3 = document.getElementById('Led3');
+    const yellowLed = document.getElementById('yellowLed');
+    const blueLed = document.getElementById('blueLed');
+    const whiteLed = document.getElementById('whiteLed');
     //const timestampContainer = document.getElementById('timestamp');
 
     //Define BLE Device Specs
@@ -144,6 +147,33 @@
         }
 
     }
+    function toggleLed (decodedValue){
+        arrayLed=decodedValue.split(":")
+        switch(arrayInd[1]) {
+            case "White":
+                if (arrayInd[2]=="on") {
+                    yellowLed.className="led-white"
+                } else {
+                    yellowLed.className="led-off"
+                }
+                break;
+            case "Yellow":
+                if (arrayInd[2]=="on") {
+                    yellowLed.className="led-yellow"
+                } else {
+                    yellowLed.className="led-off"
+                }
+                break;
+            case "Blue":
+                if (arrayInd[2]=="on") {
+                    blueLed.className="led-blue"
+                } else {
+                    blueLed.className="led-off"
+                }
+                break;
+        }
+
+    }
 
     // Connect to BLE Device and Enable Notifications
     function connectToDevice(){
@@ -215,6 +245,9 @@
         else if (newValueReceived.startsWith("Mode")) {
             mode=newValueReceived.split(":")
             onButton.innerHTML=mode[1]
+        }
+        else if (newValueReceived.startsWith("Led:")) {
+            toggleLed(newValueReceived)
         }
         else {
             const newcard=createCard (newValueReceived) 
