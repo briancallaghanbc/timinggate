@@ -156,29 +156,32 @@ button {
 
 }
 .led-blue {
-  margin: 3px;    
+  vertical-align: middle;
+  margin: 7px;    
   width: 24px;
   height: 24px;
   background-color: #24E0FF;box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;
   border-radius: 50%;
 }
 .led-yellow {
-  margin: 3px;    
+ vertical-align: middle;
+  margin: 7px;    
   width: 24px;
   height: 24px;
   background-color: #ffff24;box-shadow: rgba(249, 190, 14, 0.622) 0 -1px 7px 1px, inset rgba(102, 80, 0, 0.594) 0 -1px 9px, #3F8CFF 0 2px 14px;
   border-radius: 50%;
 }
 .led-white {
-  margin: 3px;    
+  vertical-align: middle;
+  margin: 7px;    
   width: 24px;
   height: 24px;
   background-color: #fafaf9;box-shadow: rgba(72, 71, 71, 0.622) 0 -1px 6px 1px, inset rgba(247, 247, 246, 0.843) 0 -1px 9px, #3fe9ff 0 2px 10px;
   border-radius: 50%;
 }
 .led-off {
-  
-  margin: 3px;
+  vertical-align: middle;
+  margin: 7px;
   width: 24px;
   height: 24px;
   border-radius: 50%;
