@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect1</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -126,22 +126,28 @@
             case "1":
                 if (arrayInd[2]=="on") {
                     indicatorLed1.className="green led"
+                } else if (arrayInd[2]=="wait") {
+                    indicatorLed1.className="orange led"
                 } else {
                     indicatorLed1.className="red led"
                 }
                 break;
             case "2":
                 if (arrayInd[2]=="on") {
-                    indicatorLed2.className="green led"
+                    indicatorLed1.className="green led"
+                } else if (arrayInd[2]=="wait") {
+                    indicatorLed1.className="orange led"
                 } else {
-                    indicatorLed2.className="red led"
+                    indicatorLed1.className="red led"
                 }
                 break;
             case "3":
                 if (arrayInd[2]=="on") {
-                    indicatorLed3.className="green led"
+                    indicatorLed1.className="green led"
+                } else if (arrayInd[2]=="wait") {
+                    indicatorLed1.className="orange led"
                 } else {
-                    indicatorLed3.className="red led"
+                    indicatorLed1.className="red led"
                 }
                 break;
         }
