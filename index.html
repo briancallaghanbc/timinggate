@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect2</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -121,7 +121,8 @@
                 rssiHtmlContent = rssiHtmlContent + "<tr><td>" + arrRssi[i][0] + "</td><td>" + arrRssi[i][1]   + "</td><td>" + arrRssi[i][2]  + "</td></tr>"
             }
         }
-        rssitable.innerHTML=rssiHtmlContent 
+        //rssitable.innerHTML=rssiHtmlContent 
+        rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
     }
     function createCard(decodedValue) {
         let htmlContent = `<div class="card">
