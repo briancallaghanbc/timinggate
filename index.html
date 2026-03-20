@@ -114,7 +114,7 @@
 
     function UpdateRssi(decodedValue) {
         arrayRssiTemp = decodedValue.split(":");
-        arrRssi[arrayRssiTemp[0] - 1] = [arrayRssiTemp[1],arrayRssiTemp[2],arrayRssiTemp[3]];
+        arrRssi[arrayRssiTemp[1] - 1] = [arrayRssiTemp[1],arrayRssiTemp[2],arrayRssiTemp[3]];
         let rssiHtmlContent = "";
         for (let i = 0; i < rows; i++) {
             if ( arrRssi[i][0] != 0 ) {
@@ -245,10 +245,10 @@
             if(decodedValue.startsWith("Gate")) {
                 toggleGateIndicator(decodedValue)
             }     
-             else if (newValueReceived.startsWith("Led:")) {
+             else if (decodedValue.startsWith("Led:")) {
             toggleLed(newValueReceived)
             }
-            else if (newValueReceived.startsWith("rssi")) {
+            else if (decodedValue.startsWith("rssi")) {
             UpdateRssi(decodedValue)
             }
             else {
