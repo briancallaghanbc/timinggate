@@ -35,15 +35,8 @@
 
 
             </div>
-            <div class="top-card">
-                <h2>Node Stats</h2>
-                    <p class="reading"><span>
-                        <table style="width: 95%; table-layout: fixed; font-size: 1rem">
-                        <thead><tr><th>Gate</th><th>RSSI-node</th><th>RSSI-cntl</th></tr></thead><tbody>
-                            <span id="rssitable"></span>
-                        </tbody></table>
-                </span></p>
-                <!--<p class="date-label">Date: <span>${getDateTime()}</span></p>-->
+            <div id="rssitable" class="top-card">
+                
             </div>
             
         </div>
@@ -122,7 +115,14 @@
             }
         }
         //rssitable.innerHTML=rssiHtmlContent 
-        rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
+        //rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
+        rssitable.innerHTML=`<h2>Node Stats</h2>
+                <p class="reading"><span>
+                    <table style="width: 95%; table-layout: fixed; font-size: 1rem">
+                    <thead><tr><th>Gate</th><th>RSSI-node</th><th>RSSI-cntl</th></tr></thead><tbody>
+                        <tr><td>1</td><td>2</td><td>3</td></tr>
+                    </tbody></table>
+                </p>`
     }
     function createCard(decodedValue) {
         let htmlContent = `<div class="card">
