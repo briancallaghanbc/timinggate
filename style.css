@@ -19,8 +19,9 @@ body {
 }
 .top-grid {
     
-    margin: 0 auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
     width: calc(100vw-4rem);
     display: flex;
     overflow-x: scroll;
@@ -28,7 +29,8 @@ body {
     scroll-snap-align: start;
     flex-flow: row nowrap;
     grid-gap: 5px;
-  
+    max-width: calc(100vm -4rem);
+    gap: 5px;
 }
 .top-card {
     min-width: calc(96%) ;
