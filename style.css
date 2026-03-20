@@ -22,11 +22,16 @@ body {
     margin: 0 auto;
     margin-bottom: 5px;
     width: calc(100vw-4rem);
-    
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: start;
+    flex-flow: row nowrap;
+    grid-gap: 5px;
   
 }
 .top-card {
-   
+    min-width: calc(96%) ;
     height: 200px;
     background-color: white;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
