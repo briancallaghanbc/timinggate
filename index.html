@@ -40,6 +40,7 @@
                     <p class="reading"><span>
                         <table style="width: 95%; table-layout: fixed; font-size: 1rem">
                         <thead><tr><th>Gate</th><th>RSSI-node</th><th>RSSI-cntl</th></tr></thead><tbody>
+                            <span id="rssitable"></span></span>
                         </tbody></table>
                 </span></p>
                 <!--<p class="date-label">Date: <span>${getDateTime()}</span></p>-->
@@ -68,6 +69,7 @@
     const yellowLed = document.getElementById('yellowLed');
     const blueLed = document.getElementById('blueLed');
     const whiteLed = document.getElementById('whiteLed');
+    const rssitable = document.getElementById('rssitable');
     //const timestampContainer = document.getElementById('timestamp');
     
 
@@ -119,6 +121,7 @@
                 rssiHtmlContent = rssiHtmlContent + "<tr><td>" + arrRssi[i][0] + "</td><td>" + arrRssi[i][1]   + "</td><td>" + arrRssi[i][2]  + "</td></tr>"
             }
         }
+        rssitable.innerHTML=rssiHtmlContent 
     }
     function createCard(decodedValue) {
         let htmlContent = `<div class="card">
@@ -241,6 +244,12 @@
             console.log("Decoded value: ", decodedValue);
             if(decodedValue.startsWith("Gate")) {
                 toggleGateIndicator(decodedValue)
+            }     
+             else if (newValueReceived.startsWith("Led:")) {
+            toggleLed(newValueReceived)
+            }
+            else if (newValueReceived.startsWith("rssi")) {
+            UpdateRssi(decodedValue)
             }
             else {
                 const newcard=createCard (decodedValue) 
