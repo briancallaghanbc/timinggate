@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">ConnectBl</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">ConnectBle</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -110,9 +110,9 @@
         arrRssi[arrayRssiTemp[1] - 1] = [arrayRssiTemp[1],arrayRssiTemp[2],arrayRssiTemp[3]];
         let rssiHtmlTable = "";
         for (let i = 0; i < arrRssi.length; i++) {
-            //if ( arrRssi[i][0] != 0 ) {
+            if ( arrRssi[i][0] != 0 ) {
                 rssiHtmlTable = rssiHtmlTable + "<tr><td>" + arrRssi[i][0] + "</td><td>" + arrRssi[i][1]   + "</td><td>" + arrRssi[i][2]  + "</td></tr>"
-            //}
+            }
         }
         //rssitable.innerHTML=rssiHtmlContent 
         //rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
