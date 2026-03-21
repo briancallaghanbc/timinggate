@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">ConnectBle</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -118,8 +118,8 @@
         //rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
         let rssiHtmlContent=`<h2>Node Stats</h2>
                 <p class="reading"><span>
-                    <table style="width: 95%; table-layout: fixed; font-size: 1.5rem; margin-top: 0;margin-bottom: 0">
-                        <thead style="font-size: 1.1rem;"><tr><th>Gate</th><th>RSSI-node</th><th>RSSI-cntl</th></tr></thead>
+                    <table style="width: 95%; table-layout: fixed; font-size: 1.5rem";margin-top: 0;margin-bottom: 0;>
+                        <thead style="font-size: 1rem;"><tr><th>Gate</th><th>RSSI-node</th><th>RSSI-cntl</th></tr></thead>
                         <tbody>
                             ` + rssiHtmlTable + `
                         </tbody>
