@@ -15,7 +15,7 @@
         <div class="top-grid">
             <div class="top-card">
                 <p ;>
-                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect1</span></button>
+                    <button id="connectBleButton" class="connectButton" ><span id="bleState">Connect</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -109,11 +109,11 @@
         arrayRssiTemp = decodedValue.split(":");
         arrRssi[arrayRssiTemp[1] - 1] = [arrayRssiTemp[1],arrayRssiTemp[2],arrayRssiTemp[3]];
         let rssiHtmlTable = "";
-        //for (let i = 0; i < rows; i++) {
-        //    if ( arrRssi[i][0] != 0 ) {
-        //        rssiHtmlTable = rssiHtmlTable + "<tr><td>" + arrRssi[i][0] + "</td><td>" + arrRssi[i][1]   + "</td><td>" + arrRssi[i][2]  + "</td></tr>"
-        //    }
-        //}
+        for (let i = 0; i < 3; i++) {
+            if ( arrRssi[i][0] != 0 ) {
+                rssiHtmlTable = rssiHtmlTable + "<tr><td>" + arrRssi[i][0] + "</td><td>" + arrRssi[i][1]   + "</td><td>" + arrRssi[i][2]  + "</td></tr>"
+            }
+        }
         //rssitable.innerHTML=rssiHtmlContent 
         //rssitable.innerHTML="<tr><td>1</td><td>2</td><td>3</td></tr>"
         let rssiHtmlContent=`<h2>Node Stats</h2>
