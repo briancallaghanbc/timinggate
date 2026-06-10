@@ -86,13 +86,14 @@ button {
     
     font-size: 1.2rem
 }
+
 .channelButton{
-    background-color: #1b9482;
+    background-color: #a0a3a39e;
     margin-top: 0;
     margin-bottom: 0;
-    
     font-size: 1.2rem
 }
+
 .offButton{
     background-color: #5f6c6d;
 }
