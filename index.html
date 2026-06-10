@@ -16,9 +16,9 @@
             <div class="top-card">
                 <p ;>
                     <button id="connectBleButton" class="connectButton" style="display: inline-block;">
-                        <span id="bleState">ConnectBle</span></button>
+                        <span id="bleState">ConnectBle1</span></button>
                     <button id="channelSelect" class="channelButton" style="display: inline-block;">
-                        <span id="channel">ch:01</span></button>
+                        <span id="channelNo">ch:01</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
                 </p>
                 <!--<p class="gray-label">BLE state: <strong><span id="bleState" style="color:#d13a30;">Disconnected</span></strong></p>-->
@@ -56,7 +56,8 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
-    const channelButton = document.getElementById('offButton');
+    const channelButton = document.getElementById('channelButton');
+    const channelNo = document.getElementById('channelButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
@@ -108,6 +109,11 @@
         }
         console.log('Web Bluetooth API supported in this browser.');
         return true
+    }
+    function UpdateChannel(decodedValue) {
+        arrayChannel= decodedValue.split(":");
+        strChannel=arrayChannel[1].padStart(2, '0');
+        channelNo.innerHTML = "ch:" + arrayChannel ;
     }
 
     function UpdateRssi(decodedValue) {
@@ -260,6 +266,9 @@
             }
             else if (decodedValue.startsWith("rssi")) {
             UpdateRssi(decodedValue)
+            }
+            else if (decodedValue.startsWith("Channel")) {
+            UpdateChannel(decodedValue)
             }
             else {
                 const newcard=createCard (decodedValue) 
