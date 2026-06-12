@@ -16,7 +16,7 @@
             <div class="top-card">
                 <p ;>
                     <button id="connectBleButton" class="connectButton" style="display: inline-block;">
-                        <span id="bleState">ConnectBle</span></button>
+                        <span id="bleState">ConnectBle1</span></button>
                     <button id="channelSelect" class="channelButton" style="display: inline-block;">
                         <span id="channelNo">ch:01</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
@@ -300,6 +300,9 @@
         else if (newValueReceived.startsWith("Mode")) {
             mode=newValueReceived.split(":")
             onButton.innerHTML=mode[1]
+        }
+        else if (newValueReceived.startsWith("Channel:")) {
+            UpdateChannel(newValueReceived)
         }
         else if (newValueReceived.startsWith("Led:")) {
             toggleLed(newValueReceived)
