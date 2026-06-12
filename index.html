@@ -16,7 +16,7 @@
             <div class="top-card">
                 <p ;>
                     <button id="connectBleButton" class="connectButton" style="display: inline-block;">
-                        <span id="bleState">ConnectBle1</span></button>
+                        <span id="bleState">ConnectBle</span></button>
                     <button id="channelSelect" class="channelButton" style="display: inline-block;">
                         <span id="channelNo">ch:01</span></button>
                     <!-- <button id="disconnectBleButton" class="disconnectButton"> Disconnect</button> -->
@@ -56,8 +56,8 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
-    const channelButton = document.getElementById('channelButton');
-    const channelNo = document.getElementById('channelButton');
+    const channelButton = document.getElementById('channelSelect');
+    const channelNo = document.getElementById('channelNo');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
@@ -112,8 +112,7 @@
     }
     function UpdateChannel(decodedValue) {
         arrayChannel= decodedValue.split(":");
-        strChannel=arrayChannel[1].padStart(2, '0');
-        channelNo.innerHTML = "ch:" + arrayChannel ;
+        channelNo.innerHTML = "ch:" + arrayChannel[1];
     }
 
     function UpdateRssi(decodedValue) {
